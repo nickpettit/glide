@@ -1,0 +1,122 @@
+@import "bourbon/bourbon";
+@import "glide";
+
+//mostly for dev
+$default-iteration-count: infinite;
+$default-background-color: #06A;
+
+
+/********************************
+ BASE
+ ********************************/
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body {
+  background: #444;
+}
+
+#wrapper {
+  width: 960px;
+  margin: 50px auto;
+  background: #999;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.7);
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 50px;
+  padding: 10px;
+  background: $default-background-color;
+  color: #FFF;
+  float: left;
+  position: relative;
+}
+
+#fade {
+  @include fade($iteration-count: $default-iteration-count);
+}
+
+#spin {
+  @include spin($iteration-count: $default-iteration-count);
+}
+
+#pulse {
+  @include pulse($iteration-count: $default-iteration-count);
+}
+
+#glow {
+  @include glow($iteration-count: $default-iteration-count);
+}
+
+#flash {
+  @include flash($iteration-count: $default-iteration-count);
+}
+
+#shine {
+  @include shine($background: $default-background-color, $iteration-count: $default-iteration-count);
+}
+
+#slide {
+  @include slide($iteration-count: $default-iteration-count);
+}
+
+#slide_in {
+  @include slide-in($iteration-count: $default-iteration-count);
+}
+
+#slide_out {
+  @include slide-out($iteration-count: $default-iteration-count);
+}
+
+#drop {
+  @include drop($iteration-count: $default-iteration-count);
+}
+
+#drop_in {
+  @include drop-in($iteration-count: $default-iteration-count);
+}
+
+#drop_out {
+  @include drop-out($iteration-count: $default-iteration-count);
+}
+
+#roll {
+  @include roll($iteration-count: $default-iteration-count);
+}
+
+#roll_in {
+  @include roll-in($iteration-count: $default-iteration-count);
+}
+
+#roll_out {
+  @include roll-out($iteration-count: $default-iteration-count);
+}
+
+#barcode {
+  @include barcode($background: $default-background-color, $iteration-count: $default-iteration-count);
+}
+
+#shake {
+  @include shake($iteration-count: $default-iteration-count);
+}
+
+#wobble {
+  @include wobble($iteration-count: $default-iteration-count);
+}
+
+#bounce {
+  @include bounce($iteration-count: $default-iteration-count);
+}
+
+#glide {
+  @include glide($background: $default-background-color, $iteration-count: $default-iteration-count);
+}

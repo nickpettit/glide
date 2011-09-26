@@ -1,0 +1,486 @@
+/*******************************************************************************
+
+Glide v0.1 by Nick Pettit
+A CSS3 Animation Library
+
+Dependencies:
+  - SASS
+  - bourbon
+
+To do's and notes:
+  - Glide animations are not chainable. Maybe with SASS functions?
+  - Pseudo elements cannot utilize CSS3 animations in webkit.
+  - Should keyframe mixin arguments be accessible by the user?
+  - Can the user be able to add/remove animations via JavaScript?
+
+Animation Ideas:
+  - Flashbulb?
+  - Bounce
+  - Earthquake
+  - Wipes
+
+*******************************************************************************/
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes fade {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg); }
+
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1); }
+
+  100% {
+    -webkit-transform: scale(1.1); } }
+
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1); }
+
+  100% {
+    -moz-transform: scale(1.1); } }
+
+@-webkit-keyframes glow {
+  0% {
+    -webkit-box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.9); }
+
+  100% {
+    -webkit-box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.9); } }
+
+@-moz-keyframes glow {
+  0% {
+    -moz-box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.9); }
+
+  100% {
+    -moz-box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.9); } }
+
+@-webkit-keyframes inner-glow {
+  0% {
+    -webkit-box-shadow: inset 0px 0px 0px rgba(255, 255, 255, 0.9); }
+
+  100% {
+    -webkit-box-shadow: inset 0px 0px 25px rgba(255, 255, 255, 0.9); } }
+
+@-moz-keyframes inner-glow {
+  0% {
+    -moz-box-shadow: inset 0px 0px 0px rgba(255, 255, 255, 0.9); }
+
+  100% {
+    -moz-box-shadow: inset 0px 0px 25px rgba(255, 255, 255, 0.9); } }
+
+@-webkit-keyframes flash {
+  50% {
+    background-color: #FFF; } }
+
+@-moz-keyframes flash {
+  50% {
+    background-color: #FFF; } }
+
+@-webkit-keyframes shine {
+  0% {
+    background-position: 100% 100%; }
+
+  100% {
+    background-position: 0% 0%; } }
+
+@-moz-keyframes shine {
+  0% {
+    background-position: 100% 100%; }
+
+  100% {
+    background-position: 0% 0%; } }
+
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%); }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(0px); }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: translateX(0px); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%); } }
+
+@-moz-keyframes slide {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100%); }
+
+  20% {
+    opacity: 1;
+    -moz-transform: translateX(0px); }
+
+  80% {
+    opacity: 1;
+    -moz-transform: translateX(0px); }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(100%); } }
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px); } }
+
+@-moz-keyframes slide-in {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100%); }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0px); } }
+
+@-webkit-keyframes slide-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%); } }
+
+@-moz-keyframes slide-out {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0px); }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(100%); } }
+
+@-webkit-keyframes roll {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg); }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg); }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%) rotate(120deg); } }
+
+@-moz-keyframes roll {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100%) rotate(-120deg); }
+
+  20% {
+    opacity: 1;
+    -moz-transform: translateX(0px) rotate(0deg); }
+
+  80% {
+    opacity: 1;
+    -moz-transform: translateX(0px) rotate(0deg); }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(100%) rotate(120deg); } }
+
+@-webkit-keyframes roll-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg); } }
+
+@-moz-keyframes roll-in {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100%) rotate(-120deg); }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0px) rotate(0deg); } }
+
+@-webkit-keyframes roll-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%) rotate(120deg); } }
+
+@-moz-keyframes roll-out {
+  0% {
+    opacity: 1;
+    -moz-transform: translateX(0px) rotate(0deg); }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(100%) rotate(120deg); } }
+
+@-webkit-keyframes drop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%); }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(0px); }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: translateY(0px); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100%); } }
+
+@-moz-keyframes drop {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-100%); }
+
+  20% {
+    opacity: 1;
+    -moz-transform: translateY(0px); }
+
+  80% {
+    opacity: 1;
+    -moz-transform: translateY(0px); }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(100%); } }
+
+@-webkit-keyframes drop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px); } }
+
+@-moz-keyframes drop-in {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-100%); }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0px); } }
+
+@-webkit-keyframes drop-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0px); }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100%); } }
+
+@-moz-keyframes drop-out {
+  0% {
+    opacity: 1;
+    -moz-transform: translateY(0px); }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(100%); } }
+
+@-webkit-keyframes barcode {
+  0% {
+    background-position: 100% 100%; }
+
+  10% {
+    opacity: 1; }
+
+  100% {
+    background-position: 0% 0%; } }
+
+@-moz-keyframes barcode {
+  0% {
+    background-position: 100% 100%; }
+
+  10% {
+    opacity: 1; }
+
+  100% {
+    background-position: 0% 0%; } }
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translateX(0%); }
+
+  20% {
+    -webkit-transform: translateX(0%); }
+
+  30% {
+    -webkit-transform: translateX(5%); }
+
+  45% {
+    -webkit-transform: translateX(-5%); }
+
+  60% {
+    -webkit-transform: translateX(5%); }
+
+  75% {
+    -webkit-transform: translateX(-5%); }
+
+  100% {
+    -webkit-transform: translateX(0%); } }
+
+@-moz-keyframes shake {
+  0% {
+    -moz-transform: translateX(0%); }
+
+  20% {
+    -moz-transform: translateX(0%); }
+
+  30% {
+    -moz-transform: translateX(5%); }
+
+  45% {
+    -moz-transform: translateX(-5%); }
+
+  60% {
+    -moz-transform: translateX(5%); }
+
+  75% {
+    -moz-transform: translateX(-5%); }
+
+  100% {
+    -moz-transform: translateX(0%); } }
+
+@-webkit-keyframes wobble {
+  0% {
+    -webkit-transform: translateX(0%); }
+
+  15% {
+    -webkit-transform: translateX(-25%) rotate(-5deg); }
+
+  30% {
+    -webkit-transform: translateX(20%) rotate(3deg); }
+
+  45% {
+    -webkit-transform: translateX(-15%) rotate(-3deg); }
+
+  60% {
+    -webkit-transform: translateX(10%) rotate(2deg); }
+
+  75% {
+    -webkit-transform: translateX(-5%) rotate(-1deg); }
+
+  100% {
+    -webkit-transform: translateX(0%); } }
+
+@-moz-keyframes wobble {
+  0% {
+    -moz-transform: translateX(0%); }
+
+  15% {
+    -moz-transform: translateX(-25%) rotate(-5deg); }
+
+  30% {
+    -moz-transform: translateX(20%) rotate(3deg); }
+
+  45% {
+    -moz-transform: translateX(-15%) rotate(-3deg); }
+
+  60% {
+    -moz-transform: translateX(10%) rotate(2deg); }
+
+  75% {
+    -moz-transform: translateX(-5%) rotate(-1deg); }
+
+  100% {
+    -moz-transform: translateX(0%); } }
+
+@-webkit-keyframes bounce {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%); }
+
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(0%); }
+
+  35% {
+    -webkit-transform: translateY(-25%); }
+
+  60% {
+    -webkit-transform: translateY(0%); }
+
+  65% {
+    -webkit-transform: translateY(-5%); }
+
+  80% {
+    -webkit-transform: translateY(0px); }
+
+  100% {
+    -webkit-transform: translateY(0px); } }
+
+@-moz-keyframes bounce {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-100%); }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0px); } }
+
+@-webkit-keyframes glide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    background-position: 0% 0%; }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    background-position: 100% 100%; } }
+
+@-moz-keyframes glide {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100%);
+    background-position: 0% 0%; }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0%);
+    background-position: 100% 100%; } }
