@@ -14,16 +14,25 @@ To do's and notes:
   - Can the user be able to add/remove animations via JavaScript?
   - Use 3d transform to utilize the GPU
   - transform: translate3d(0,0,0);
-  - Use cubic-bezier function on bounce, instead of keyframes
+  - Use cubic-bezier function on bounce, instead of keyframes?
   - Seems to be broken in Safari.
 
 
 Animation Ideas:
-  - Flashbulb?
-  - Bounce
+  - Flashbulb
+  - Flickering light bulb
+  - Slot machine?
+  - Spinning lottery ball
+  - Comet Trails (box shadow)
+  - whirling red siren (box shadow)
+  - fire (box shadow)
+  - energy ball (box shadow)
+  - cool ice (box shadow)
+  - smoke (box shadow)
+  - wave (border radius around an element?)
+  - circle with waves
   - Earthquake
-  - Wipes
-  - Barbershop
+  - Wipes?
   
 
 *******************************************************************************/
@@ -510,13 +519,24 @@ Animation Ideas:
 @-moz-keyframes stomp {
   0% {
     opacity: 0;
-    -moz-transform: translateY(-100%); }
+    -moz-transform: translateY(-100%);
+    -moz-box-shadow: -30px 40px 0px -30px rgba(255, 255, 255, 0), 0px 40px 0px -30px rgba(255, 255, 255, 0), 30px 40px 0px -30px rgba(255, 255, 255, 0); }
 
-  10% {
-    opacity: 1; }
+  20% {
+    opacity: 0;
+    -moz-transform: translateY(-100%);
+    -moz-box-shadow: -30px 40px 0px -30px rgba(255, 255, 255, 0), 0px 40px 0px -30px rgba(255, 255, 255, 0), 30px 40px 0px -30px rgba(255, 255, 255, 0); }
+
+  25% {
+    opacity: 1;
+    -moz-transform: translateY(0px);
+    -moz-box-shadow: -50px 60px 0px -30px rgba(255, 255, 255, 0), 0px 60px 0px -30px rgba(255, 255, 255, 0), 50px 60px 0px -30px rgba(255, 255, 255, 0); }
+
+  29% {
+    -moz-box-shadow: -70px 80px 70px -30px rgba(255, 255, 255, 0.5), 0px 80px 70px -30px rgba(255, 255, 255, 0.7), 70px 80px 70px -30px rgba(255, 255, 255, 0.6); }
 
   100% {
-    -moz-transform: translateY(0px); } }
+    -moz-box-shadow: -100px 90px 120px -10px rgba(255, 255, 255, 0), 0px 90px 120px -10px rgba(255, 255, 255, 0), 100px 90px 120px -10px rgba(255, 255, 255, 0); } }
 
 @-webkit-keyframes glide {
   0% {
