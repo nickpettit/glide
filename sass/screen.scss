@@ -117,6 +117,10 @@ body {
   @include bounce($iteration-count: $default-iteration-count);
 }
 
+#stomp {
+  @include stomp($iteration-count: $default-iteration-count);
+}
+
 #glide {
   @include glide($background: $default-background-color, $iteration-count: $default-iteration-count);
 }

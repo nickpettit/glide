@@ -25,6 +25,8 @@ Animation Ideas:
   - Bounce
   - Earthquake
   - Wipes
+  - Barbershop
+  
 
 *******************************************************************************/
 
@@ -700,8 +702,23 @@ Animation Ideas:
       opacity: 0;
       -moz-transform: translateY($start);
     }
-    100% {
+    30% {
       opacity: 1;
+      -moz-transform: translateY(0%);
+    }
+    35% {
+      -moz-transform: translateY(-25%);
+    }
+    60% {
+      -moz-transform: translateY(0%);
+    }
+    65% {
+      -moz-transform: translateY(-5%);
+    }
+    80% {
+      -moz-transform: translateY($end);
+    }
+    100% {
       -moz-transform: translateY($end);
     }
   }
@@ -709,6 +726,61 @@ Animation Ideas:
 }
 @mixin bounce($duration: 1s, $timing-function: linear, $delay: 0s, $iteration-count: 1, $direction: normal) {
   @include animation(bounce, $duration, $timing-function, $delay, $iteration-count, $direction);
+}
+
+@mixin stomp_keyframes($start: -100%, $end: 0px) {
+
+  @-webkit-keyframes stomp {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY($start);
+      -webkit-box-shadow:-30px 40px 0px -30px rgba(255,255,255,0),
+                           0px 40px 0px -30px rgba(255,255,255,0),
+                          30px 40px 0px -30px rgba(255,255,255,0);
+    }
+    20% {
+      opacity: 0;
+      -webkit-transform: translateY($start);
+      -webkit-box-shadow:-30px 40px 0px -30px rgba(255,255,255,0),
+                           0px 40px 0px -30px rgba(255,255,255,0),
+                          30px 40px 0px -30px rgba(255,255,255,0);
+    }
+    25% {
+      opacity: 1;
+      -webkit-transform: translateY($end);
+      -webkit-box-shadow:-50px 60px 0px -30px rgba(255,255,255,0),
+                           0px 60px 0px -30px rgba(255,255,255,0),
+                          50px 60px 0px -30px rgba(255,255,255,0);
+    }
+    29% {
+      -webkit-box-shadow:-70px 80px 70px -30px rgba(255,255,255,.5),
+                           0px 80px 70px -30px rgba(255,255,255,.7),
+                          70px 80px 70px -30px rgba(255,255,255,.6);
+    }
+    100% {
+      -webkit-box-shadow:-100px 90px 120px -10px rgba(255,255,255,.0),
+                           0px  90px 120px -10px rgba(255,255,255,.0),
+                          100px 90px 120px -10px rgba(255,255,255,.0);
+
+    }
+  }
+
+  @-moz-keyframes stomp {
+    0% {
+      opacity: 0;
+      -moz-transform: translateY($start);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      -moz-transform: translateY($end);
+    }
+  }
+
+}
+@mixin stomp($duration: 2s, $timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530), $delay: 0s, $iteration-count: 1, $direction: normal) {
+  @include animation(stomp, $duration, $timing-function, $delay, $iteration-count, $direction);
 }
 
 @mixin glide_keyframes($start: -100%, $end: 0%) {
@@ -772,4 +844,5 @@ Animation Ideas:
 @include shake_keyframes;
 @include wobble_keyframes;
 @include bounce_keyframes;
+@include stomp_keyframes;
 @include glide_keyframes;
