@@ -15,8 +15,10 @@ To do's and notes:
   - Should keyframe mixin arguments be accessible by the user?
   - Can the user be able to add/remove animations via JavaScript?
   - Use 3d transform to utilize the GPU
-    - transform: translate3d(0,0,0);
+  - transform: translate3d(0,0,0);
   - Use cubic-bezier function on bounce, instead of keyframes
+  - Seems to be broken in Safari.
+
 
 Animation Ideas:
   - Flashbulb?
