@@ -39,6 +39,6 @@ The arguments that can be passed to Glide animations are the same as the values 
 
 Glide comes with a premade project that features all of the animations currently available. Simply open the index.html file in your web browser (Google Chrome works best right now) to see all of the animations in action. 
 
-## Notes:
+## Notes
 
 Currently, only the latest version of Google Chrome is supported officially. However, this is unacceptable. The goal is to make these animations work across as many browsers as possible. Glide animations are also not chainable in any sense of the word. A solution for this is in the works.
