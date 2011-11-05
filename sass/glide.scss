@@ -34,7 +34,8 @@ Animation ideas:
 
 ****************************************/
 
-
+//includes animation helper functions from bourbon
+@import "animation";
 
 @mixin fade_keyframes($start: 1, $end: 0) {
   
