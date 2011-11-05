@@ -2,9 +2,14 @@
 
 The purpose of Glide is to provide a library of CSS3 animations that are robust and reusable in a wide variety of contexts, but flexible enough to be adjusted when necessary.
 
+# Requirements
+
+- Sass: http://sass-lang.com/
+- bourbon: https://github.com/thoughtbot/bourbon
+
 # Usage
 
-Glide is written in Sass, using the SCSS syntax. You must have Sass installed, preferably the latest version. You also will need the gem for bourbon. For links to these projects, see the "Requirements" section below.
+Glide is written in Sass, using the SCSS syntax. You must have Sass installed, preferably the latest version. You also will need the gem for bourbon. For links to these projects, see the "Requirements" section above.
 
 To use Glide, simply include both bourbon and Glide into your .scss file, like this:
 
@@ -33,11 +38,6 @@ The arguments that can be passed to Glide animations are the same as the values 
     $background: #06A
 
 Glide comes with a premade project that features all of the animations currently available. Simply open the index.html file in your web browser (Google Chrome works best right now) to see all of the animations in action. 
-
-# Requirements
-
-- Sass: http://sass-lang.com/
-- bourbon: https://github.com/thoughtbot/bourbon
 
 ## Notes:
 
