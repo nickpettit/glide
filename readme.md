@@ -4,7 +4,7 @@ The purpose of Glide is to provide a library of CSS3 animations that are robust 
 
 # Requirements
 
-- Sass: http://sass-lang.com/
+Sass: http://sass-lang.com/
 
 # Usage
 
