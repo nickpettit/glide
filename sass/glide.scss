@@ -1,43 +1,39 @@
 // sass --watch sass:stylesheets -r ./sass/bourbon/lib/bourbon.rb
 
-/*******************************************************************************
-
-Glide v0.1 by Nick Pettit
-A CSS3 Animation Library
-
-Dependencies:
-  - SASS
-  - bourbon
+/****************************************
 
 To do's and notes:
-  - Glide animations are not chainable. Maybe with SASS functions?
-  - Pseudo elements cannot utilize CSS3 animations in webkit.
-  - Should keyframe mixin arguments be accessible by the user?
-  - Can the user be able to add/remove animations via JavaScript?
-  - Use 3d transform to utilize the GPU
-  - transform: translate3d(0,0,0);
-  - Use cubic-bezier function on bounce, instead of keyframes?
-  - Seems to be broken in Safari.
+- Glide animations are not chainable. Maybe with SASS functions?
+- Pseudo elements cannot utilize CSS3 animations in webkit.
+- Should keyframe mixin arguments be accessible by the user?
+- Can the user be able to add/remove animations via JavaScript?
+- Use 3d transform to utilize the GPU
+- transform: translate3d(0,0,0);
+- Use cubic-bezier function on bounce, instead of keyframes?
+- Seems to be broken in Safari.
 
 
-Animation Ideas:
-  - Flashbulb
-  - Flickering light bulb
-  - Slot machine?
-  - Spinning lottery ball
-  - Comet Trails (box shadow)
-  - whirling red siren (box shadow)
-  - fire (box shadow)
-  - energy ball (box shadow)
-  - cool ice (box shadow)
-  - smoke (box shadow)
-  - wave (border radius around an element?)
-  - circle with waves
-  - Earthquake
-  - Wipes?
-  
+Animation ideas:
+- Flashbulb
+- Flickering light bulb
+- Radioactive (box shadow)
+- Sparkle (box shadow)
+- Slot machine?
+- Spinning lottery ball
+- Comet Trails (box shadow)
+- whirling red siren (box shadow)
+- fire (box shadow)
+- energy ball (box shadow)
+- cool ice (box shadow)
+- smoke (box shadow)
+- wave (border radius around an element?)
+- circle with waves
+- Earthquake
+- Wipes?
 
-*******************************************************************************/
+****************************************/
+
+
 
 @mixin fade_keyframes($start: 1, $end: 0) {
   
@@ -168,19 +164,40 @@ Animation Ideas:
   
   @-webkit-keyframes flash {
     50% {
-      background-color: #FFF;
+      box-shadow: inset 0px 0px 100px 100px rgba(255,255,255,1);
     }
   }
   
   @-moz-keyframes flash {
     50% {
-      background-color: #FFF;
+      box-shadow: inset 0px 0px 100px 100px rgba(255,255,255,1);
     }
   }
   
 }
-@mixin flash($duration: 0.5s, $timing-function: ease, $delay: 0s, $iteration-count: 1, $direction: alternate, $background: false) {
+@mixin flash($duration: 1s, $timing-function: linear, $delay: 0s, $iteration-count: 1, $direction: alternate, $background: false) {
   @include animation(flash, $duration, $timing-function, $delay, $iteration-count, $direction);
+}
+
+@mixin flashbulb_keyframes {
+  
+  @-webkit-keyframes flashbulb {
+    50% {
+      box-shadow: inset 0px 0px 100px 100px rgba(255,255,220,1),
+                        0px 0px 30px 10px rgba(255,255,220,1);
+    }
+  }
+  
+  @-moz-keyframes flashbulb {
+    50% {
+      box-shadow: inset 0px 0px 100px 100px rgba(255,255,220,1),
+                        0px 0px 30px 10px rgba(255,255,220,1);
+    }
+  }
+  
+}
+@mixin flashbulb($duration: 1s, $timing-function: linear, $delay: 0s, $iteration-count: 1, $direction: alternate, $background: false) {
+  @include animation(flashbulb, $duration, $timing-function, $delay, $iteration-count, $direction);
 }
 
 @mixin shine_keyframes {
@@ -814,6 +831,26 @@ Animation Ideas:
   @include animation(stomp, $duration, $timing-function, $delay, $iteration-count, $direction);
 }
 
+@mixin redalert_keyframes($start: -100%, $end: 0px) {
+
+  @-webkit-keyframes redalert {
+    50% {
+      box-shadow: -100px 0px 50px  -50px rgba(255,50,50,1),
+                   100px 0px 50px  -50px rgba(255,50,50,1),
+                   inset 0px 0px  200px rgba(255,50,50,1);
+      background-color: #FFF;
+    }
+  }
+
+  @-moz-keyframes redalert {
+
+  }
+
+}
+@mixin redalert($duration: 0.5s, $timing-function: linear, $delay: 0s, $iteration-count: 1, $direction: normal) {
+  @include animation(redalert, $duration, $timing-function, $delay, $iteration-count, $direction);
+}
+
 @mixin glide_keyframes($start: -100%, $end: 0%) {
 
   @-webkit-keyframes glide {
@@ -862,6 +899,7 @@ Animation Ideas:
 @include glow_keyframes;
 @include inner_glow_keyframes;
 @include flash_keyframes;
+@include flashbulb_keyframes;
 @include shine_keyframes;
 @include slide_keyframes;
 @include slide_in_keyframes;
@@ -877,4 +915,5 @@ Animation Ideas:
 @include wobble_keyframes;
 @include bounce_keyframes;
 @include stomp_keyframes;
+@include redalert_keyframes;
 @include glide_keyframes;

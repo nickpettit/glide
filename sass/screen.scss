@@ -61,6 +61,10 @@ body {
   @include flash($iteration-count: $default-iteration-count);
 }
 
+#flashbulb {
+  @include flashbulb($iteration-count: $default-iteration-count);
+}
+
 #shine {
   @include shine($background: $default-background-color, $iteration-count: $default-iteration-count);
 }
@@ -119,6 +123,10 @@ body {
 
 #stomp {
   @include stomp($iteration-count: $default-iteration-count);
+}
+
+#redalert {
+  @include redalert($iteration-count: $default-iteration-count);
 }
 
 #glide {

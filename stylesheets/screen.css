@@ -1,41 +1,35 @@
-/*******************************************************************************
-
-Glide v0.1 by Nick Pettit
-A CSS3 Animation Library
-
-Dependencies:
-  - SASS
-  - bourbon
+/****************************************
 
 To do's and notes:
-  - Glide animations are not chainable. Maybe with SASS functions?
-  - Pseudo elements cannot utilize CSS3 animations in webkit.
-  - Should keyframe mixin arguments be accessible by the user?
-  - Can the user be able to add/remove animations via JavaScript?
-  - Use 3d transform to utilize the GPU
-  - transform: translate3d(0,0,0);
-  - Use cubic-bezier function on bounce, instead of keyframes?
-  - Seems to be broken in Safari.
+- Glide animations are not chainable. Maybe with SASS functions?
+- Pseudo elements cannot utilize CSS3 animations in webkit.
+- Should keyframe mixin arguments be accessible by the user?
+- Can the user be able to add/remove animations via JavaScript?
+- Use 3d transform to utilize the GPU
+- transform: translate3d(0,0,0);
+- Use cubic-bezier function on bounce, instead of keyframes?
+- Seems to be broken in Safari.
 
 
-Animation Ideas:
-  - Flashbulb
-  - Flickering light bulb
-  - Slot machine?
-  - Spinning lottery ball
-  - Comet Trails (box shadow)
-  - whirling red siren (box shadow)
-  - fire (box shadow)
-  - energy ball (box shadow)
-  - cool ice (box shadow)
-  - smoke (box shadow)
-  - wave (border radius around an element?)
-  - circle with waves
-  - Earthquake
-  - Wipes?
-  
+Animation ideas:
+- Flashbulb
+- Flickering light bulb
+- Radioactive (box shadow)
+- Sparkle (box shadow)
+- Slot machine?
+- Spinning lottery ball
+- Comet Trails (box shadow)
+- whirling red siren (box shadow)
+- fire (box shadow)
+- energy ball (box shadow)
+- cool ice (box shadow)
+- smoke (box shadow)
+- wave (border radius around an element?)
+- circle with waves
+- Earthquake
+- Wipes?
 
-*******************************************************************************/
+****************************************/
 @-webkit-keyframes fade {
   0% {
     opacity: 1; }
@@ -108,11 +102,19 @@ Animation Ideas:
 
 @-webkit-keyframes flash {
   50% {
-    background-color: #FFF; } }
+    box-shadow: inset 0px 0px 100px 100px white; } }
 
 @-moz-keyframes flash {
   50% {
-    background-color: #FFF; } }
+    box-shadow: inset 0px 0px 100px 100px white; } }
+
+@-webkit-keyframes flashbulb {
+  50% {
+    box-shadow: inset 0px 0px 100px 100px #ffffdc, 0px 0px 30px 10px #ffffdc; } }
+
+@-moz-keyframes flashbulb {
+  50% {
+    box-shadow: inset 0px 0px 100px 100px #ffffdc, 0px 0px 30px 10px #ffffdc; } }
 
 @-webkit-keyframes shine {
   0% {
@@ -538,6 +540,12 @@ Animation Ideas:
   100% {
     -moz-box-shadow: -100px 90px 120px -10px rgba(255, 255, 255, 0), 0px 90px 120px -10px rgba(255, 255, 255, 0), 100px 90px 120px -10px rgba(255, 255, 255, 0); } }
 
+@-webkit-keyframes redalert {
+  50% {
+    box-shadow: -100px 0px 50px -50px #ff3232, 100px 0px 50px -50px #ff3232, inset 0px 0px 200px #ff3232;
+    background-color: #FFF; } }
+
+@-moz-keyframes redalert {}
 @-webkit-keyframes glide {
   0% {
     opacity: 0;
@@ -611,9 +619,14 @@ body {
   animation: glow 0.5s ease 0s infinite alternate; }
 
 #flash {
-  -webkit-animation: flash 0.5s ease 0s infinite alternate;
-  -moz-animation: flash 0.5s ease 0s infinite alternate;
-  animation: flash 0.5s ease 0s infinite alternate; }
+  -webkit-animation: flash 1s linear 0s infinite alternate;
+  -moz-animation: flash 1s linear 0s infinite alternate;
+  animation: flash 1s linear 0s infinite alternate; }
+
+#flashbulb {
+  -webkit-animation: flashbulb 1s linear 0s infinite alternate;
+  -moz-animation: flashbulb 1s linear 0s infinite alternate;
+  animation: flashbulb 1s linear 0s infinite alternate; }
 
 #shine {
   background: -webkit-linear-gradient(right bottom, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.4) 45%, white 50%, rgba(255, 255, 255, 0.4) 55%, rgba(255, 255, 255, 0) 70%) no-repeat, #0066aa;
@@ -714,6 +727,11 @@ body {
   -webkit-animation: stomp 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s infinite normal;
   -moz-animation: stomp 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s infinite normal;
   animation: stomp 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s infinite normal; }
+
+#redalert {
+  -webkit-animation: redalert 0.5s linear 0s infinite normal;
+  -moz-animation: redalert 0.5s linear 0s infinite normal;
+  animation: redalert 0.5s linear 0s infinite normal; }
 
 #glide {
   background: -webkit-linear-gradient(right bottom, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.4) 45%, white 50%, rgba(255, 255, 255, 0.4) 55%, rgba(255, 255, 255, 0) 70%) no-repeat, #0066aa;
